@@ -2,16 +2,23 @@
 
 Projeto desenvolvido para a disciplina de Laboratório de Programação - UNIEVANGÉLICA
 
-## Integrantes do Grupo
-- João Lucas Paiva da Silva | 2510716
-- Isaque Teles Ferreira | 2511103
-- Matheus Aguiar de Araújo Giuliangeli | 2510448
-- João Victor Barbosa Neves | 2512507
+## 👥 Integrantes
+- [Seu Nome]
+- [Nome do colega]
+- [Nome do colega]
+- [Nome do colega]
 
-## Funcionalidades
-- ✅ Cadastrar contato
-- ✅ Listar contatos
-- ✅ Buscar por nome
-- ✅ Editar contato
-- ✅ Excluir contato (lógica)
-- ✅ Estatísticas com função recursiva
+## 📋 Funcionalidades
+- Cadastrar contato com validação de email
+- Listar todos os contatos
+- Buscar contato por nome (busca parcial)
+- Editar contato
+- Excluir contato
+- Estatísticas com função recursiva
+
+## 🚀 Como executar
+### No Dev C++:
+1. Abra o Dev C++
+2. Arquivo > Novo > Projeto > Console Application
+3. Adicione os arquivos: main.c, contatos.c, contatos.h
+4. Compile e execute (F11)
