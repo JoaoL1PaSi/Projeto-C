@@ -3,10 +3,10 @@
 Projeto desenvolvido para a disciplina de Laboratório de Programação - UNIEVANGÉLICA
 
 ## 👥 Integrantes
-- [Seu Nome]
-- [Nome do colega]
-- [Nome do colega]
-- [Nome do colega]
+- João Lucas Paiva da Silva | 2511103
+- Isaque Teles Ferreira | 2510716
+- Matheus Aguiar de Araújo Giuliangeli | 2512507
+- João Victor Barbosa Neves | 2512507
 
 ## 📋 Funcionalidades
 - Cadastrar contato com validação de email
