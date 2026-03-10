@@ -1,6 +1,3 @@
-# Projeto-C
-Projetos feitos em C
-
 # Gerenciador de Contatos em C
 
 Projeto desenvolvido para a disciplina de Laboratório de Programação - UNIEVANGÉLICA
