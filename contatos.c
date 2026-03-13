@@ -2,10 +2,12 @@
 #include <string.h>
 #include "contatos.h"
 
-/* -------- 1° ---------- */
-void cadastrarContato(Contato *lista, int *total) {
+/* -------- 1Â° ---------- */
+void cadastrar(Contato *lista, int *total) {
+	
     if (*total < 100) {
     	printf("\n --- Cadastre seu contato ---\n\n");
+    	
         printf("Nome: ");
         scanf(" %[^\n]", lista[*total].nome);
         printf("Telefone: ");
@@ -22,28 +24,37 @@ void cadastrarContato(Contato *lista, int *total) {
         } while(1);
 
         (*total)++;
-        printf("Contato cadastrado com sucesso!\n");
+        printf("\nContato cadastrado com sucesso!\n");
     } else {
         printf("Erro: Lista cheia!\n");
     }
+    
+    printf("\nPressione Enter para continuar...");
+    getchar(); getchar();
+    system("cls");
 }
 
-/* -------- 2° ---------- */
-void listarContatos(Contato *lista, int total) {
+/* -------- 2Â° ---------- */
+void listar(Contato *lista, int total) {
+	system("cls");
     int i;
+    
+    printf("\n --- Lista de Contatos ---\n");
     
     if (total == 0) {
         printf("Nenhum contato cadastrado.\n");
-        return;  // Removido o 'return 0' porque a função é void
+        return;
     }
+    
     for (i = 0; i < total; i++) {
-        printf("\nContato %d:\n - Nome: %s\n - Telefone: %s\n - E-mail: %s\n", 
-                i + 1, lista[i].nome, lista[i].telefone, lista[i].email);
+        printf("\n%d. Nome: %s\n", i + 1, lista[i].nome);
+    	printf("   Telefone: %s\n", lista[i].telefone);
+    	printf("   E-mail: %s\n", lista[i].email);
     }
 }
 
-/* -------- 3° ---------- */
-int buscarContato(Contato *lista, int total, char *nomeBusca) {
+/* -------- 3Â° ---------- */
+int buscar(Contato *lista, int total, char *nomeBusca) {
     int i;
     for (i = 0; i < total; i++) {
         if (strcmp(lista[i].nome, nomeBusca) == 0) {
@@ -53,13 +64,13 @@ int buscarContato(Contato *lista, int total, char *nomeBusca) {
     return -1;
 }
 
-/* -------- 4° ---------- */
-void editarContato(Contato *lista, int total) {
+/* -------- 4Â° ---------- */
+void editar(Contato *lista, int total) {
     char nomeBusca[50];
     printf("Digite o nome exato do contato para editar: ");
     scanf(" %[^\n]", nomeBusca);
 
-    int indice = buscarContato(lista, total, nomeBusca);
+    int indice = buscar(lista, total, nomeBusca);
 
     if (indice != -1) {
         printf("Novo Telefone para %s: ", lista[indice].nome);
@@ -70,16 +81,21 @@ void editarContato(Contato *lista, int total) {
     } else {
         printf("Contato nao encontrado.\n");
     }
+    
+    printf("\nPressione Enter para continuar...");
+    getchar(); getchar();
+    system("cls");
+    
 }
 
-/* -------- 5° ---------- */
-void excluirContato(Contato *lista, int *total) {
+/* -------- 5Â° ---------- */
+void excluir(Contato *lista, int *total) {
     char nomeBusca[50];
     int i;
     printf("Digite o nome do contato para excluir: ");
     scanf(" %[^\n]", nomeBusca);
 
-    int indice = buscarContato(lista, *total, nomeBusca);
+    int indice = buscar(lista, *total, nomeBusca);
 
     if (indice != -1) {
         for (i = indice; i < (*total) - 1; i++) {
@@ -90,13 +106,25 @@ void excluirContato(Contato *lista, int *total) {
     } else {
         printf("Contato nao encontrado.\n");
     }
+    
+    printf("\nPressione Enter para continuar...");
+    getchar(); getchar();
+    system("cls");
 }
 
-/* -------- 6° ---------- */
+/* -------- 6Â° ---------- */
 int contarNomesLongos(Contato *lista, int total, int indice, int n) {
-    if (indice == total){
-    	return 0;
-	}
-    int atual = (strlen(lista[indice].nome) > n) ? 1 : 0;
+    if (indice == total) {
+        return 0;
+    }
+    
+    int atual;
+    
+    if (strlen(lista[indice].nome) > n) {
+        atual = 1;
+    } else {
+        atual = 0;  
+    }
+    
     return atual + contarNomesLongos(lista, total, indice + 1, n);
 }
